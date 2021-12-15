@@ -1,6 +1,12 @@
 #include "character.h"
 Character::Character(double &hp,double &atk,double &def,string &race):HP{hp},Atk{atk},Def{def},Race{race},dead{false}{}
 Character::~Character(){}
+int Character::getChambernumber() {
+   return chambernum;
+}
+void Character::setChambernumber(int n) {
+   chambernum = n;
+}
 bool Character::isDead()
 {
    return dead;

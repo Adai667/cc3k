@@ -19,11 +19,14 @@ class Character
     char NewPosition;
     string Race;
     bool dead;
+    int chambernum;
 
     public:
        Character(double &hp,double &atk,double &def,string &race);
        bool isDead();
        void setDeath(bool d);
+       int getChambernumber();
+       void setChambernumber(int n);
        void setRace(string race); void getRace(string &race);
        void setHP(double hp); void getHP(double &hp);
        void setmaxHP(int maxhp); void getmaxHP(int &maxhp);

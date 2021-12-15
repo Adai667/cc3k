@@ -80,12 +80,11 @@ bool Gamesys::replay()
 {
    return re;
 }
-void Gamesys::playgame(Floor &floor,int level)
+void Gamesys::playgame(Floor &floor,int level, bool init)
 {
    // init player
-   string playerrace;bool notset = true;double hp,atk,def; int gold;int playerx, playery;
-   if(level == 1)
-   {
+   string playerrace;bool notset = init;double hp,atk,def; int gold;int playerx, playery;
+   
    while(notset)
    {
       cout << endl << "[ Available Races: s(Shade), d(Drow), v(Vampire), g(Goblin), t(Troll) ]" << endl;
@@ -106,7 +105,6 @@ void Gamesys::playgame(Floor &floor,int level)
       }
    }
     cout<<endl;
-   }
    
    player->levelover = false;
       // notification will be shown if the player is beside an already-learned potion
@@ -123,8 +121,12 @@ void Gamesys::playgame(Floor &floor,int level)
       if((player->levelover) && (level == 5))
       {
          double sc;
-         if((playerrace == "z") || (playerrace == "s")) sc = (hp*10 + gold*100)*1.5;
-         else {sc=hp*10 + gold*100;}
+         player->getGold(gold);
+         if((playerrace == "z") || (playerrace == "s")) {
+            sc = (gold*100)*1.5;
+         } else {
+            sc = gold * 100;
+            }
 	 cout << "You win !!!"<<endl;
          cout <<"Your score is :" <<sc<<endl;
          string again;
@@ -180,10 +182,9 @@ void Gamesys::playgame(Floor &floor,int level)
       player->getHP(hp);
       if(hp <= 0) {
                       double sc;
-		      if((playerrace == "z") || (playerrace == "s")) sc = (hp*10 + gold*100)*1.5;
-                      else {sc=hp*10 + gold*100;}
+		      if((playerrace == "z") || (playerrace == "s")) sc = (gold*100)*1.5;
+                      else {sc=gold*100;}
                       cout << "You Lose!" << endl;
-		      cout <<"Your score is :" <<sc<<endl;
 		      string again;
 		      cout <<"Do you want to play again?(press r for replay) :";
 		      cin >> again;
@@ -332,6 +333,7 @@ void Gamesys::initposition(Character *subject, char symbol,Floor &floor)
    mt19937 engine{random_device()};
    uniform_int_distribution<> dist(1,5);
    auto val = dist(engine);
+   subject->setChambernumber(val);
    floor.getCoordinates(val,subposx,subposy);
    subject->setPosition(subposx,subposy);
    subject->setPrevPosition('.');
@@ -346,10 +348,10 @@ void Gamesys::initstair(Player *player,char symbol, Floor &floor)
      mt19937 engine{random_device()};
      uniform_int_distribution<> dist(1,5);
      auto st = dist(engine);int stairx,stairy;
+     if (st == player->getChambernumber()) continue;
      floor.getCoordinates(st,stairx,stairy);
-     int playerposx,playerposy;player->getPosition(playerposx,playerposy);
-     if((stairx == playerposx) && (stairy == playerposy)) continue;
-     else {floor.settile(stairx,stairy,'\\');break;} 
+     floor.settile(stairx,stairy,'\\');
+     break;
    }
 }
 

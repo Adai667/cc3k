@@ -23,7 +23,7 @@ class Gamesys
      void initposition(Character *sub, char symbol,Floor &floor);
      void initstair(Player *player,char symbol, Floor &floor);
      void initenemy(Floor &floor);
-     void playgame(Floor &floor,int level);
+     void playgame(Floor &floor,int level, bool init);
      Floor& getfloor1();
      Floor& getfloor2();
      Floor& getfloor3();
