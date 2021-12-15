@@ -14,7 +14,7 @@
 using namespace std;
 class DlcGamesys{
   DlcFloor floor1,floor2,floor3,floor4,floor5;
-  Player *player;  
+  Player *player = nullptr;  
   bool end;
   bool re;
   public:

@@ -3,7 +3,12 @@
 #include <vector>
 
 DlcFloor::DlcFloor():Floor{} {}
-DlcFloor::~DlcFloor(){DlcFloor::clean();}
+DlcFloor::~DlcFloor(){
+   clean();
+   if (doctorX != nullptr) {
+      delete doctorX;
+   }
+}
 
 void DlcFloor::startDoctor() {
     random_device random_device;
@@ -107,24 +112,4 @@ vector<Enemy*> DlcFloor::enemyAround(int xcor, int ycor, int chambernum) {
        ans.push_back(doctorX);
    }
    return ans;
-}
-
-void DlcFloor::clean() {
-    for(auto &v : enemies)
-    {
-      delete v;
-    }
-    for(auto &g : golds)
-    {
-      delete g;
-    }
-    for(auto &p : potions)
-    {
-      delete p;
-    }
-    for(auto &d : dragons)
-    {
-       delete d;
-    }
-    delete doctorX;
 }

@@ -14,7 +14,7 @@ using namespace std;
 class Gamesys
 {
   Floor floor1,floor2,floor3,floor4,floor5;
-  Player *player;  
+  Player *player = nullptr;  
   bool end;
   bool re;
   public:

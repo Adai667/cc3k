@@ -3,17 +3,22 @@
 #include<string>
 #include "gamesys.h"
 #include "dlcgamesys.h"
+#include "dlcfloor.h"
 using namespace std;
  
 int main(int argc, char *argv[])
 {
     string defaultFile = "floor.txt";
     string defaultChamber = "floorbase.txt";
+    bool dlc = false;
+    if (argc == 2 && string(argv[1]) == "dlc") {
+      dlc = true;
+    }
      while(true)
     {     
       Gamesys gamesys1;
       DlcGamesys gamesys2;
-        if (argc == 2 && string(argv[1]) == "dlc") {
+        if (dlc) {
         cout << "You won a DLC!" << endl;
         cout << "Be careful of Dr.X, you are on the list of assassination." << endl;
          gamesys2.startfloors(defaultFile,defaultChamber);
@@ -37,22 +42,34 @@ int main(int argc, char *argv[])
       if(gamesys2.endgame()){gamesys2.score();break;}
       else 
         {  
-	   if(gamesys2.replay()) continue;
+	   if(gamesys2.replay()) {
+              cout << "You cannot replay in this mode" << endl;
+              return 0;
+            }
            gamesys2.playgame(gamesys2.getfloor2(),2, init);
            if(gamesys2.endgame()){gamesys2.score();break;}
              else
              {
-                if(gamesys2.replay()) continue;
+                if(gamesys2.replay()) {
+              cout << "You cannot replay in this mode" << endl;
+              return 0;
+            }
 		gamesys2.playgame(gamesys2.getfloor3(),3, init);
 		if(gamesys2.endgame()){gamesys2.score();break;}
 		else
 		{
-		    if(gamesys2.replay()) continue;
+		    if(gamesys2.replay()) {
+              cout << "You cannot replay in this mode" << endl;
+              return 0;
+            }
 		    gamesys2.playgame(gamesys2.getfloor4(),4, init);
 		    if(gamesys2.endgame()){gamesys2.score();break;}
 		    else
 		    {
-		        if(gamesys2.replay()) continue;
+		        if(gamesys2.replay()) {
+              cout << "You cannot replay in this mode" << endl;
+              return 0;
+            }
 			gamesys2.playgame(gamesys2.getfloor5(),5, init);
 		        if(gamesys2.endgame()){gamesys2.score();break;}
 		    }

@@ -198,7 +198,7 @@ void DlcGamesys::playgame(DlcFloor &floor,int level, bool init)
          if(cin.eof()) {cout<<endl;break;}
       }
       else if (in == "r") {re = true;end = false;return;}
-      else if (in == "q") { //we need to add other commands
+      else if (in == "q") { 
          cout << "You Lose!" << endl;
 	 end = true;
          return;
@@ -363,5 +363,5 @@ void DlcGamesys::initenemy(DlcFloor &floor)
 }
 DlcGamesys::~DlcGamesys()
 {
-   delete player;
+   if (player != nullptr) delete player;
 }

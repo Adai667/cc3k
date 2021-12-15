@@ -64,7 +64,7 @@ class Floor
     void addGold(Gold *gold, int xcor, int ycor);
     virtual Enemy* findEnemy(int xcor, int ycor,vector<Enemy*> enemyAround);
     void removeDragon(int xcor, int ycor,Player *player);
-    virtual void clean();
+    void clean();
     void setM();
 };
 

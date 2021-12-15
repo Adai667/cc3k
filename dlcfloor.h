@@ -12,7 +12,6 @@ class DlcFloor: public Floor {
     void startDoctor();
     virtual void moveEnemy();
     virtual vector<Enemy*> enemyAround(int xcor, int ycor, int chambernum);
-    virtual void clean();
 };
 
 #endif

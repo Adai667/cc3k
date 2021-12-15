@@ -198,7 +198,7 @@ void Gamesys::playgame(Floor &floor,int level, bool init)
          if(cin.eof()) {cout<<endl;break;}
       }
       else if (in == "r") {re = true;end = false;return;}
-      else if (in == "q") { //we need to add other commands
+      else if (in == "q") {
          cout << "You Lose!" << endl;
 	 end = true;
          return;
@@ -362,5 +362,5 @@ void Gamesys::initenemy(Floor &floor)
 }
 Gamesys::~Gamesys()
 {
-   delete player;
+   if (player != nullptr) delete player;
 }
