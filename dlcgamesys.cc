@@ -134,7 +134,20 @@ void DlcGamesys::playgame(DlcFloor &floor,int level, bool init)
          if(again == "r") {re = true;end = false; return;}
 	 else {end = true;return;}
       }
-      if(player->levelover) return;
+      if(player->levelover) {
+         double atkeffect, defeffect;
+         player->getAtkEffect(atkeffect);
+         player->getDefEffect(defeffect);
+         double playerAtk;
+         double playerDef;
+         player->getAtk(playerAtk);
+         player->getDef(playerDef);
+         player->setAtk(playerAtk - atkeffect);
+         player->setDef(playerDef - defeffect);
+         player->setAtkEffect(0);
+         player->setDefEffect(0);
+         return;
+       }
       player->getPosition(playerx,playery);
       // notification will be shown if the player is beside an already-learned potion
       vector<char> tiles;
