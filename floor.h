@@ -29,6 +29,7 @@ using namespace std;
 
 class Floor
 {
+    protected:
     struct coordinates{
     int x; int y;
     };

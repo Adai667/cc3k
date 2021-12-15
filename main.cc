@@ -13,7 +13,9 @@ int main(int argc, char *argv[])
     {     
       Gamesys gamesys1;
       DlcGamesys gamesys2;
-      if (argc == 2 && argv[1] == "dlc") {
+        if (argc == 2 && string(argv[1]) == "dlc") {
+        cout << "You won a DLC!" << endl;
+        cout << "Be careful of Dr.X, you are on the list of assassination." << endl;
          gamesys2.startfloors(defaultFile,defaultChamber);
          bool init = true;
       cout << "Please choose difficulty: e(Easy), n(Normal by default)" << endl;

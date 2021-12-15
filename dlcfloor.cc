@@ -2,6 +2,9 @@
 #include <random>
 #include <vector>
 
+DlcFloor::DlcFloor():Floor{} {}
+DlcFloor::~DlcFloor(){DlcFloor::clean();}
+
 void DlcFloor::startDoctor() {
     random_device random_device;
     mt19937 engine{random_device()};
@@ -22,7 +25,7 @@ void DlcFloor::startDoctor() {
     }
 }
 
-virtual void DlcFloor::moveEnemy() {
+void DlcFloor::moveEnemy() {
    random_device random_device;
    mt19937 engine{random_device()};
    if(canmove == -1) return;   
@@ -47,16 +50,19 @@ virtual void DlcFloor::moveEnemy() {
           getCoordinates(st,enx,eny);
           if(gettile(enx,eny) != '.') continue;
 	  else {
+          int enemy_x,enemy_y;char r;
+          doctorX->getPosition(enemy_x,enemy_y);
+          settile(enemy_x,enemy_y,doctorX->getPrevPosition());
           doctorX->setPosition(enx,eny);
           doctorX->setPrevPosition('.');
           doctorX->setChambernumber(st); 
-          settile(enx,eny,r);
+          settile(enx,eny,'X');
           break;
         }
     }
 }
 
-virtual vector<Enemy*> DlcFloor::enemyAround(int xcor, int ycor, int chambernum) {
+vector<Enemy*> DlcFloor::enemyAround(int xcor, int ycor, int chambernum) {
    vector<Enemy*> ans; 
    for (int i = xcor - 1; i <= xcor + 1; i++) {
       for (int j = ycor - 1; j <= ycor + 1; j++) {
@@ -95,13 +101,15 @@ virtual vector<Enemy*> DlcFloor::enemyAround(int xcor, int ycor, int chambernum)
          
       }
    }
-   if (doctorX->getChambernumber() == chambernum) {
+   int n;
+   doctorX->getChambernumber(n);
+   if (n == chambernum) {
        ans.push_back(doctorX);
    }
    return ans;
 }
 
-virtual void DlcFloor::clean() {
+void DlcFloor::clean() {
     for(auto &v : enemies)
     {
       delete v;

@@ -13,6 +13,6 @@ class DlcFloor: public Floor {
     virtual void moveEnemy();
     virtual vector<Enemy*> enemyAround(int xcor, int ycor, int chambernum);
     virtual void clean();
-}
+};
 
 #endif
