@@ -35,7 +35,7 @@ void Orcs::attack(Player* player) {
 	else 
 	{
           player->loseHP(ceil(( 1.5 * 100 / (100 + playerDef)) * enemyAtk));
-          cout << " " << sym << " deals " << ceil(( 100 / (100 + playerDef)) * enemyAtk)
+          cout << " " << sym << " deals " << ceil((1.5 * 100 / (100 + playerDef)) * enemyAtk)
           << " damage to PC." << endl<<": ";
         }
         

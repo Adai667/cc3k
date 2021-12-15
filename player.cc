@@ -68,7 +68,7 @@ void Player::attack(Enemy* enemy) {
       }
    if(playerrace == "Vampire")
    {
-      if(enemyRace == "dwarf") {setHP(playerHP + 5);cout << "PC lose 5 HP.";}
+      if(enemyRace == "Dwarf") {setHP(playerHP - 5);cout << "PC lose 5 HP.";}
       else 
       {
          setHP(playerHP + 5);
