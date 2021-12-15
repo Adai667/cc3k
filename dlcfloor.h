@@ -5,7 +5,7 @@
 #include <vector>
 #include <memory>
 class DlcFloor: public Floor {
-    DrX* doctorX;
+    DrX* doctorX = nullptr;
     public:
     DlcFloor();
     ~DlcFloor();

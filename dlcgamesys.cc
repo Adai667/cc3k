@@ -95,7 +95,7 @@ void DlcGamesys::playgame(DlcFloor &floor,int level, bool init)
         if(playerrace == "v") {hp = 50;atk = 25;def = 25;Vampire *me = new Vampire{hp,atk,def};player = me;notset = false;}
         if(playerrace == "d") {hp = 150;atk = 25;def = 15;Drow *me = new Drow{hp,atk,def};player = me;notset = false;}
         if(playerrace == "t") {hp = 120;atk = 25;def = 15;Troll *me = new Troll{hp,atk,def};player = me;notset = false;}
-        if(playerrace == "g") {hp = 110;atk = 200;def = 20;Goblin *me = new Goblin{hp,atk,def};player = me;notset = false;}
+        if(playerrace == "g") {hp = 110;atk = 15;def = 20;Goblin *me = new Goblin{hp,atk,def};player = me;notset = false;}
         if(playerrace == "z") {hp = 125;atk = 25;def = 25;Shade *me = new Shade{hp,atk,def};player = me;notset = false;}
       }
       else
