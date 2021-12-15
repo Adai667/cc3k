@@ -53,17 +53,17 @@ class Floor
     void settile(int xcor,int ycor,char cha);
     void getCoordinates(int chambernum,int &playerx,int &playery);
     void startenemy();
-    void moveEnemy();
+    virtual void moveEnemy();
     void moveEnemyhelp(Enemy *enemy,int new_x,int new_y);
     void startGold(Player *player);
     void startPotion(Player *player);
     Potion *getPotion(int targetX,int targetY);
-    vector<Enemy*> enemyAround(int xcor, int ycor);
+    virtual vector<Enemy*> enemyAround(int xcor, int ycor);
     void removeEnemy(Enemy* enemy, int xcor, int ycor);
     void addGold(Gold *gold, int xcor, int ycor);
-    Enemy* findEnemy(int xcor, int ycor,vector<Enemy*> enemyAround);
+    virtual Enemy* findEnemy(int xcor, int ycor,vector<Enemy*> enemyAround);
     void removeDragon(int xcor, int ycor,Player *player);
-    void clean();
+    virtual void clean();
     void setM();
 };
 

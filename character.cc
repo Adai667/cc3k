@@ -43,7 +43,6 @@ void Character::setAtk(double atk)
 {
    Atk = atk;
 }
-//---------------------- Add new things here by Ellie (Remember to delete this line) ----------------------
 void Character::getAtk(double &atk)
 {
    atk = Atk + AtkEffect;
@@ -72,7 +71,6 @@ void Character::getDefEffect(int &defEff)
 {
    defEff = DefEffect;
 }
-//---------------------- Addings end here (Remember to delete this line) ----------------------
 void Character::setAttackBonus(int ab)
 {
    AttackBonus = ab;

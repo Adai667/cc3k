@@ -107,7 +107,6 @@ void Gamesys::playgame(Floor &floor,int level, bool init)
     cout<<endl;
    
    player->levelover = false;
-      // notification will be shown if the player is beside an already-learned potion
    player->getGold(gold);player->getHP(hp);player->getAtk(atk);player->getDef(def);player->getRace(playerrace);
    initposition(player,'@',floor);
    // init stair

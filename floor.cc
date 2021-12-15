@@ -128,7 +128,6 @@ void Floor::moveplayerhelp(Player *player,int new_x,int new_y)
    if(t == '\\') {player->levelover = true;}
    if((t == '.')||(t == '+')||(t == '#')||(t == 'G'))
    {
-//---------------------- Add new things here by Ellie (Remember to delete this line) ----------------------
    bool hasPicked = false; // check if we has picked any gold
    if (t == 'G') { // walks over a gold
       int goldX, goldY;
@@ -152,7 +151,7 @@ void Floor::moveplayerhelp(Player *player,int new_x,int new_y)
    } else {
       player->setPrevPosition(t);
    }
-//---------------------- Addings end here (Remember to delete this line) ----------------------
+
    }
 }
 
@@ -165,7 +164,7 @@ void Floor::moveEnemy()
    {
       int enemy_x,enemy_y,n;
       i->getPosition(enemy_x, enemy_y);i->getChambernumber(n);
-      uniform_int_distribution<> dist(0,3);
+      uniform_int_distribution<> dist(0,7);
       auto val = dist(engine);
       if(val == 0) moveEnemyhelp(i,enemy_x,enemy_y - 1);
       if(val == 1) moveEnemyhelp(i,enemy_x,enemy_y + 1);
@@ -263,7 +262,6 @@ void Floor::clean()
 
 Floor::~Floor(){Floor::clean();}
 
-//---------------------- Add new things here by Ellie (Remember to delete this line) ----------------------
 void Floor::startGold(Player *player)
 {
    random_device random_device;
@@ -392,7 +390,7 @@ Potion *Floor::getPotion(int targetX, int targetY) {
    }
    return nullptr; // gives nullptr if the target potion does not exist
 }
-//---------------------- Addings end here (Remember to delete this line) ----------------------
+
 vector<Enemy*> Floor::enemyAround(int xcor, int ycor) {
    vector<Enemy*> ans; 
    for (int i = xcor - 1; i <= xcor + 1; i++) {
