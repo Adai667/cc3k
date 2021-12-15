@@ -255,8 +255,20 @@ void Gamesys::playgame(Floor &floor,int level)
 	    {
                 floor.removeDragon(enemyX, enemyY,player);
             } 
-	    else 
-	    {
+	    else {
+               random_device random_device;
+               mt19937 engine{random_device()};
+               uniform_int_distribution<> dist(1,2);
+               auto val = dist(engine);
+               int gold;
+               player->getGold(gold);
+               if (val == 1) {
+                  player->setGold(gold + 1);
+                  cout << endl<< "[ Picked Treasure: Small Gold ]" << endl;
+               } else {
+                  player->setGold(gold + 2);
+                  cout << endl<< "[ Picked Treasure: Normal Gold ]" << endl;
+               }
 	       floor.removeEnemy(targetEnemy, enemyX, enemyY);
             }
 
