@@ -30,8 +30,8 @@ class Character
        void setmaxHP(int maxhp); void getmaxHP(int &maxhp);
        void setAtk(double atk); void getAtk(double &atk);
        void setDef(double def); void getDef(double &def);
-       void setAtkEffect(int atk); void getAtkEffect(int &atk);
-       void setDefEffect(int def); void getDefEffect(int &def);
+       void setAtkEffect(double atk); void getAtkEffect(double &atk);
+       void setDefEffect(double def); void getDefEffect(double &def);
        void setAttackBonus(int ab); void getAttackBonus(int &ab);
        void setMissChance(double mc); void getMissChance(double &mc);
        void setPrevPosition(char cha); char getPrevPosition();

@@ -8,6 +8,7 @@ class Items {
     string name;
     int posnX;
     int posnY;
+    protected:
     Player *player;
     
     public:

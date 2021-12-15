@@ -55,19 +55,19 @@ void Character::getDef(double &def)
 {
    def = Def + DefEffect;
 }
-void Character::setAtkEffect(int atkEff)
+void Character::setAtkEffect(double atkEff)
 {
    AtkEffect = atkEff;
 }
-void Character::getAtkEffect(int &atkEff)
+void Character::getAtkEffect(double &atkEff)
 {
    atkEff = AtkEffect;
 }
-void Character::setDefEffect(int defEff)
+void Character::setDefEffect(double defEff)
 {
    DefEffect = defEff;
 }
-void Character::getDefEffect(int &defEff)
+void Character::getDefEffect(double &defEff)
 {
    defEff = DefEffect;
 }
