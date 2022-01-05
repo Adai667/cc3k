@@ -8,6 +8,7 @@
 using namespace std;
 
 const int NUM_OF_DIRECTIONS = 8;
+const int TWO_PILES_OF_NORMAL_GOLD = 4;
 
 Gamesys::Gamesys():end{false},re{false}{}
 void Gamesys::startfloors(string floorfile,string chamberfile)
@@ -258,11 +259,9 @@ void Gamesys::playgame(Floor &floor,int level, bool init)
 	    {
                floor.removeEnemy(targetEnemy, enemyX, enemyY);
                Gold *new1 = new NormalGold(player);
+               new1->setGold(TWO_PILES_OF_NORMAL_GOLD);
 	       new1->setPosn(enemyX,enemyY);
                floor.addGold(new1, enemyX, enemyY);
-               Gold *new2 = new NormalGold(player);
-	       new2->setPosn(enemyX,enemyY);
-               floor.addGold(new2, enemyX, enemyY);
 	    } 
 	    else if (enemyRace == "Dragon") 
 	    {

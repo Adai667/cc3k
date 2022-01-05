@@ -10,6 +10,7 @@ class Gold :public Items {
     int value;
     bool pro;
     public:
+    void setGold(int newVal);
     bool isProtected(); void setProtected(bool &b);
     void beingPicked();
     Enemy* getProtector();

@@ -9,8 +9,8 @@ class Character
     int MaxHP;
     double Atk;
     double Def;
-    int AtkEffect = 0;
-    int DefEffect = 0;
+    double AtkEffect = 0;
+    double DefEffect = 0;
     int AttackBonus;
     double MissChance;
     char PrevPosition;

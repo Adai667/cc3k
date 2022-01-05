@@ -1,6 +1,10 @@
 #include "gold.h"
 #include <iostream>
 
+void Gold::setGold(int newVal) {
+    value = newVal;
+}
+
 bool Gold::isProtected() {;
     return pro;
 }
